@@ -15,11 +15,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // 1. Create Academic Year
+        $ay = \App\Models\academic_year::create([
+            'name' => '2025/2026',
+            'is_active' => true,
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // 2. Create Classroom
+        $classroom = \App\Models\classroom::create([
+            'class_name' => 'XII RPL 1',
+            'academic_year_id' => $ay->id,
+        ]);
+
+        // 3. Create Admin
+        \App\Models\User::create([
+            'name' => 'Super Admin',
+            'username' => 'admin',
+            'email' => 'admin@smk.sch.id',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+        ]);
+
+        // 4. Create Teacher
+        \App\Models\User::create([
+            'name' => 'Budi Santoso, S.Kom',
+            'username' => 'guru_budi',
+            'email' => 'budi@smk.sch.id',
+            'password' => bcrypt('password'),
+            'role' => 'teacher',
+        ]);
+
+        // 5. Create Student (for Mobile Test)
+        \App\Models\student::create([
+            'nisn' => '12345678',
+            'name' => 'Siswa Percobaan',
+            'password' => bcrypt('password'),
+            'classroom_id' => $classroom->id,
         ]);
     }
 }
