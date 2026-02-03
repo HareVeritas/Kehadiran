@@ -64,6 +64,14 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+<<<<<<< HEAD
+=======
+        
+        'students' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Student::class,
+        ],
+>>>>>>> 2d80d6bd139d07824956b75836a66502698209b8
 
         // 'users' => [
         //     'driver' => 'database',
