@@ -1,16 +1,11 @@
 <?php
 
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\ProfileController;
->>>>>>> 2d80d6bd139d07824956b75836a66502698209b8
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
-=======
 
 
 
@@ -47,4 +42,3 @@ Route::get('/dashboard', function () {
 });
 
 require __DIR__.'/auth.php';
->>>>>>> 2d80d6bd139d07824956b75836a66502698209b8
